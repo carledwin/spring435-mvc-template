@@ -9,17 +9,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class UserDetailsServiceDAO implements UserDetailsService
-{
+public class UserDetailsServiceDAO implements UserDetailsService {
 
-   @PersistenceContext
-   private EntityManager em;
+	@PersistenceContext
+	private EntityManager em;
 
-   @Override
-   public UserDetails loadUserByUsername(String username)
-         throws UsernameNotFoundException
-   {
-      throw new UnsupportedOperationException("You should implement the body of this method in order to load users");
-   }
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		throw new UnsupportedOperationException("You should implement the body of this method in order to load users");
+	}
 
 }

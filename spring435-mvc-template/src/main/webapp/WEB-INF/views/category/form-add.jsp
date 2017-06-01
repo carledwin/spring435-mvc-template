@@ -4,11 +4,10 @@
 <template:admin>
   <div>
     <div class ="container min-container">      
-    <h2 class="basic-title">Add</h2>
+    <h2 class="basic-title">New Category</h2>
       <form:form role="form" cssClass="well" commandName="category" servletRelativeAction="/category" method="POST">
       	<%@include file="form-inputs.jsp" %>
-        <button type="submit" class="btn btn-primary">Submit</button>
-
+        <button type="submit" class="btn btn-primary">Save</button>
       </form:form>	
     </div>
   </div>

@@ -11,21 +11,18 @@ import org.springframework.web.servlet.view.InternalResourceViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "br.com.carledwinti")
-public class AppWebConfiguration extends WebMvcConfigurerAdapter
-{
+public class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
-   @Override
-   public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer)
-   {
-      configurer.enable();
-   }
+	@Override
+	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
+		configurer.enable();
+	}
 
-   @Bean
-   public InternalResourceViewResolver internalResourceViewResolver()
-   {
-      InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-      resolver.setPrefix("/WEB-INF/views/");
-      resolver.setSuffix(".jsp");
-      return resolver;
-   }
+	@Bean
+	public InternalResourceViewResolver internalResourceViewResolver() {
+		InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+		resolver.setPrefix("/WEB-INF/views/");
+		resolver.setSuffix(".jsp");
+		return resolver;
+	}
 }

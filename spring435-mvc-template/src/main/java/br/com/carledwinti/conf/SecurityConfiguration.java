@@ -12,42 +12,33 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @EnableWebSecurity
-public class SecurityConfiguration extends WebSecurityConfigurerAdapter
-{
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
-   @Override
-   protected void configure(HttpSecurity http) throws Exception
-   {
-      /*
-      EXAMPLE OF AUTHENTICATION AND AUTHORIZATION
-      
-      http.authorizeRequests()
-      .antMatchers("/url1").hasRole("ADMIN")
-      .antMatchers("/url2/**").permitAll()
-      .antMatchers(HttpMethod.POST,"/specificUrl").hasRole("ADMIN")
-      .antMatchers("/url3/**").permitAll()
-      .anyRequest().authenticated()
-      .and()
-      .formLogin().loginPage("/login").permitAll()
-      .and()
-      .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
-       */
-   }
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		/*
+		 * EXAMPLE OF AUTHENTICATION AND AUTHORIZATION
+		 * 
+		 * http.authorizeRequests() .antMatchers("/url1").hasRole("ADMIN")
+		 * .antMatchers("/url2/**").permitAll()
+		 * .antMatchers(HttpMethod.POST,"/specificUrl").hasRole("ADMIN")
+		 * .antMatchers("/url3/**").permitAll() .anyRequest().authenticated()
+		 * .and() .formLogin().loginPage("/login").permitAll() .and()
+		 * .logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+		 */
+	}
 
-   @Autowired
-   private UserDetailsService users;
+	@Autowired
+	private UserDetailsService users;
 
-   @Override
-   protected void configure(AuthenticationManagerBuilder auth)
-         throws Exception
-   {
-      auth.userDetailsService(users).passwordEncoder(new BCryptPasswordEncoder());
-   }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(users).passwordEncoder(new BCryptPasswordEncoder());
+	}
 
-   @Override
-   public void configure(WebSecurity web) throws Exception
-   {
-      //you can change 
-      web.ignoring().antMatchers("/resources/**");
-   }
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		// you can change
+		web.ignoring().antMatchers("/resources/**");
+	}
 }
